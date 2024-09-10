@@ -44,8 +44,6 @@ function finalizar(){
         let menor = valores[0]
         let soma = 0
         let media = 0
-        let crescente = valores.sort((a,b) => a - b);
-        let decrescente = valores.sort((a,b) => b - a);
 
         for(let pos in valores){
             soma += valores[pos]
@@ -55,6 +53,7 @@ function finalizar(){
             menor = valores[pos]
         }
         
+
         media = soma / tot
         res.innerHTML=''
         res.innerHTML += `<p>Ao todo temos ${tot} numeros adicionados</p> `
@@ -62,7 +61,13 @@ function finalizar(){
         res.innerHTML += `<p>O menor valor informado foi ${menor}</p>`
         res.innerHTML += `<p>A soma dos valores informados é: ${soma}</p>`
         res.innerHTML += `<p>A média dos valores informados é: ${media}</p>`
+
+        let crescente = valores.sort((a,b) => a - b);
+    
         res.innerHTML += `<p>Os valores em ordem crescente é: ${crescente}</p>`
-        res.innerHTML += `<p>Os valores em ordem crescente é: ${decrescente}</p>`
+        
+        let decrescente = valores.sort((a,b) => b - a);
+
+        res.innerHTML += `<p>Os valores em ordem decrescente é: ${decrescente}</p>`
     }
 }

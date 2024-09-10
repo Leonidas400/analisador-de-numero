@@ -1,7 +1,7 @@
-let nu = document.getElementById('txtn')
-let ta = document.getElementById('txtb')
-let res = document.getElementById('res')
-let valores = []
+let nu = document.getElementById('txtn');
+let ta = document.getElementById('txtb');
+let res = document.getElementById('res');
+let valores = [];
 
 function isNumero(n){
     if(Number(n) >= 1 && Number(n) <= 100){
@@ -31,9 +31,11 @@ function adiciona(){
     }
     nu.value =''
     nu.focus()
+
 }
 
 function finalizar(){
+    
     if(valores.length == 0){
         alert('Adicione valores antes de finalizar')
     }else{
@@ -42,6 +44,8 @@ function finalizar(){
         let menor = valores[0]
         let soma = 0
         let media = 0
+        let crescente = valores.sort((a,b) => a - b);
+        let decrescente = valores.sort((a,b) => b - a);
 
         for(let pos in valores){
             soma += valores[pos]
@@ -58,5 +62,7 @@ function finalizar(){
         res.innerHTML += `<p>O menor valor informado foi ${menor}</p>`
         res.innerHTML += `<p>A soma dos valores informados é: ${soma}</p>`
         res.innerHTML += `<p>A média dos valores informados é: ${media}</p>`
+        res.innerHTML += `<p>Os valores em ordem crescente é: ${crescente}</p>`
+        res.innerHTML += `<p>Os valores em ordem crescente é: ${decrescente}</p>`
     }
 }
